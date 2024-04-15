@@ -32,6 +32,8 @@ namespace UnitTests
         {
             // Arrange
             _game = new Game(_board, 8, 0, _consoleServiceMock.Object);
+            _minesBuilderMock.Setup(m => m.GetMines(It.IsAny<int>()))
+                .Returns(_mines[..1]);
 
             // Act
             _game.Run();
